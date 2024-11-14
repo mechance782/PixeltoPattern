@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel to Pattern</title>
+
+    <link rel="stylesheet" 
+        type="text/css" 
+        href="/css/style.css">
+
+    <script src="/script/canvasScript.js" defer></script>
+    
+</head>
+<body class="canvas" >
+
+        <nav></nav>
+
+        <section id="toolBar"> </section>
+
+        <section id="drawingArea">
+            <!-- this div, canvasContainer acts as the view of the canvas. The container is always 600px by 600px.
+            The grid will fill the container depending on the ratio of width to height. 
+            The grid will always fill 100% of the width or height of the container, or both.-->
+            <div id="canvasContainer" >    
+
+            <!-- If the user provided inputs for height and width in index.ejs canvasForm,
+            then the program will find the height/width ratio. 
+            This will help the canvas reactively fill the canvasContainer. 
+            The ratio is coded inline on the canvasGrid div-->
+            <% if ((canvasHeight != "") && (canvasWidth != "")) { %>
+                
+                <div id="reactiveCanvasGrid" style="height:<%= ratio.heightRatio %>; width: <%= ratio.widthRatio %>;
+                grid-template-columns: repeat(<%= canvasWidth %>, 1fr); grid-template-rows:repeat(<%= canvasHeight %>, 1fr);" >
+                
+                <!-- fills reactiveCanvasGrid div with .gridPixel divs.
+                gridPixels are generated to fill the given amount
+                of rows and columns.-->
+                <% let pixelNumber = canvasHeight * canvasWidth; %>
+                <% for(let i = 1; i <= pixelNumber; i++){ %>
+                    <% let pixelId = "pixel" + i; %>
+                    <div class="gridPixel" id= <%= pixelId %> >
+
+                    </div>
+                <% } %>
+                </div>
+                
+            <% } else { %>
+                <% let canvasWidth = 64; %>
+                <% let canvasHeight = 64; %>
+                <!-- if no user input is given, a default grid is generated,
+                with a width and height of 64 -->
+                <div id="defaultCanvasGrid">
+                <% for(let i = 1; i <= 4096; i++){ %>
+                    <% let pixelId = "pixel" + i; %>
+                    <div class="gridPixel" id= <%= pixelId %> > </div>
+                <% } %>
+                </div>
+
+            <% } %>
+            </div>    
+
+            <p><%= canvasWidth %> x <%= canvasHeight %></p>
+        </section>
+    
+
+
+    
+
+
+</body>
+</html>

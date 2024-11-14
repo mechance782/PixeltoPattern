@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel to Pattern</title>
+    <link rel="stylesheet" 
+        type="text/css" 
+        href="/css/style.css">
+    <script src="/script/indexScript.js" defer></script>
+    
+</head>
+<body>
+    <nav>
+        <!-- insert cute icon here -->
+        <h1>Pixel to Pattern</h1>
+    </nav>
+    <h2>Convert your custom pixel drawing to a crochet pattern here!</h2>
+    <!-- insert pixel drawings here? -->
+
+    <!-- no sensitive info here! get method is okay.
+     form gets users canvas size choice -->
+
+    <form id="canvasForm" method="get" action="/canvasSubmit">
+        <legend>Choose your canvas size:</legend>
+        <small class="maxSizeErr">Max canvas size is 100px by 100px</small> <span class="err maxSizeErr">!</span>
+        <br>
+
+        <label for="canvasHeight">Height: </label>
+        <input type="text" id="canvasHeight" name="canvasHeight" placeholder="64">
+        <span>px</span>
+        <label for="canvasWidth">Width: </label>
+        <input type="text" id="canvasWidth" name="canvasWidth" placeholder="64">
+        <span>px</span>
+
+        <button type="submit" id="submitSize">Create Canvas</button>
+    </form>
+
+    <section id="questions">
+        <h3>How does this work?</h3>
+        <p>
+        Pixel to Pattern is here to take your pixel drawing and convert it into a crochet pattern.
+        To create your pixel drawing, choose your canvas size and press the create button. 
+        Now that you have your pixel canvas, use your drawing tools to make your personalized design.
+        Once you're happy with your art, send it off! 
+        Pixel to Pattern will take what you made and convert it into a simple crochet pattern.
+        You can use this pattern for anything, from tapestries to pillow covers, whatever fits your canvas size.
+        </p>
+
+        <h3>How do I use a crochet pattern?</h3>
+        <p>The crochet patterns generated on this site are simple and easy to use.
+            They will provide detailed instructions, definitions of any jargon used, and a legend to help you keep track of any abbreviated terms.
+            If this doesn't cover everything, please check for more details below.
+        </p>
+        <ul>
+        <li>If your new to crochet, you can find some helpful information on how to crochet here: 
+            <!-- insert link to crochet tutorials -->
+        </li>
+        <li>If you've never read a crochet pattern before, consider reading some tips and tricks here:
+            <!-- anotha link to crochet tutorials -->
+        </li>
+        <li>If you need more information about color changing, check here:
+            <!-- anotha one -->
+        </li>
+        </ul>
+
+        <h3>How do I make a pixel drawing</h3>
+        <p>i dunno lol</p>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+This programs purpose is to convert pixel drawings to crochet patterns.
+
+As of 10/23/24, the plan is:
+Prompt user for canvas size - standard sizes provided with radio buttons or drop down
+retrieve request from client and load new page with requested canvas size
+3 greyscale color options are provided, user may switch between them by clicking
+An eraser will also be providid
+The canvas will be a grid of white squares with thin black borders
+User clicks on grid and it will fill with chosen color
+information on boxes clicked and colors chosen will be logged with java script
+may need to use a form? 
+The drawing will need to be submitted using a button at the bottom of the page
+User taken to next page that will have converted pattern displayed there
+Use JS to convert it to a pattern?
+not sure
+
+10/31/24
+
+code to find height / width ratio has an error and the ratio is returned as over 100% sometimes
+it seems to happen when width or height have different lengths (ex: w: 99 h: 100)
