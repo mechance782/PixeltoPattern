@@ -39,11 +39,20 @@
                 <% let pixelNumber = canvasHeight * canvasWidth; %>
                 <% for(let i = 1; i <= pixelNumber; i++){ %>
                     <% let pixelId = "pixel" + i; %>
-                    <% if (i % 2 === 1){ %>
-                        <div class="gridPixel" id= <%= pixelId %> style="background-color: #CCCCCC"> </div>
+                    <% if (canvasWidth % 2 === 0){ %>
+                        <% if (i % 0 === 2){ %>
+                            <div class="gridPixel" id= <%= pixelId %> style="background-color: #CCCCCC"> </div>
+                        <% } else { %>
+                            <div class="gridPixel" id= <%= pixelId %> > </div>
+                        <% } %>
                     <% } else { %>
-                        <div class="gridPixel" id= <%= pixelId %> > </div>
+                        <% if (i % 2 === 1){ %>
+                            <div class="gridPixel" id= <%= pixelId %> style="background-color: #CCCCCC"> </div>
+                        <% } else { %>
+                            <div class="gridPixel" id= <%= pixelId %> > </div>
+                        <% } %>
                     <% } %>
+                    
                 <% } %>
                 </div>
                 <p><%= canvasWidth %> x <%= canvasHeight %></p>
