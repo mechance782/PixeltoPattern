@@ -10,6 +10,7 @@
 
 
 /* global */
+
 * {
     box-sizing: border-box;
 }
@@ -19,16 +20,12 @@
     display: none;
 }
 
-/* index styles */
 body {
     font-family: Arial, Helvetica, sans-serif;
-}
-
-
-/* canvas styles */
-body.canvas {
     background-color: #F2F2F2;
+    
 }
+
 
 #canvasContainer {
     width: 600px;
