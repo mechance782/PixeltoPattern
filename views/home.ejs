@@ -6,8 +6,8 @@
     <title>Pixel to Pattern</title>
     <link rel="stylesheet" 
         type="text/css" 
-        href="/css/style.css">
-    <script src="/script/indexScript.js" defer></script>
+        href="css/style.css">
+    <script src="scripts/homeScript.js" defer></script>
     
 </head>
 <body>
@@ -21,19 +21,19 @@
     <!-- no sensitive info here! get method is okay.
      form gets users canvas size choice -->
 
-    <form id="canvasForm" method="get" action="/canvasSubmit">
+    <form id="canvasForm" method="post" action="/canvasSubmit">
         <legend>Choose your canvas size:</legend>
-        <small class="maxSizeErr">Max canvas size is 100px by 100px</small> <span class="err maxSizeErr">!</span>
+        <p class="err" id="maxSizeErr">Max canvas size is 100px by 100px!</p>
         <br>
 
-        <label for="canvasHeight">Height: </label>
-        <input type="text" id="canvasHeight" name="canvasHeight" placeholder="64">
-        <span>px</span>
         <label for="canvasWidth">Width: </label>
         <input type="text" id="canvasWidth" name="canvasWidth" placeholder="64">
         <span>px</span>
-
-        <button type="submit" id="submitSize">Create Canvas</button>
+        <label for="canvasHeight">Height: </label>
+        <input type="text" id="canvasHeight" name="canvasHeight" placeholder="64">
+        <span>px</span>
+        
+        <button type="submit">Create Canvas</button>
     </form>
 
     <section id="questions">

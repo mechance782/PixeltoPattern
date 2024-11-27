@@ -1,13 +1,13 @@
 const express = require('express');
 const PORT = 3000;
 const app = express();
-const path = require('path');
 
 app.use(express.urlencoded({extended: false}));
 
+app.use(express.static('public'));
+
 app.set('view engine', 'ejs');
 
-app.use(express.static(path.join(__dirname, 'public')));
 
 function findRatio(canvasHeight, canvasWidth){
     let heightRatio; 
@@ -30,12 +30,12 @@ function findRatio(canvasHeight, canvasWidth){
 
 app.get('/', (req,res) => {
     console.log("u did it");
-    res.render('index');
+    res.render('home');
 })
 
-app.get('/canvasSubmit', (req, res) => {
-    let height = req.query.canvasHeight;
-    let width = req.query.canvasWidth;
+app.post('/canvasSubmit', (req, res) => {
+    let height = req.body.canvasHeight;
+    let width = req.body.canvasWidth;
 
     res.render('canvas', { canvasHeight : height, canvasWidth: width, ratio : findRatio(height, width) });
 })

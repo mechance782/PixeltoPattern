@@ -1,10 +1,11 @@
 /* Color Scheme:
- Light Grey: #D1CDD1
- darker grey: #A7A0A7
- Teal: #0EA292
- Purple: #7A3B69
- Eggplant: #563440
- Smokey black: #191308
+ Light Grey: #F2F2F2
+ darker grey: #B8B8B8
+ light blue: #187FCF
+ pink: #A51F91
+ teal: #17658A
+ purple: #480A8F
+ red: #7D103C
   */
 
 
@@ -26,7 +27,7 @@ body {
 
 /* canvas styles */
 body.canvas {
-    background-color: #D1CDD1;
+    background-color: #F2F2F2;
 }
 
 #canvasContainer {
@@ -35,27 +36,16 @@ body.canvas {
     margin: auto auto ;
 }
 
+#defaultCanvasGrid, 
 #reactiveCanvasGrid {
     display: grid;
-    grid-template-columns: 100fr;
-    grid-template-rows: 100fr;
+    grid-template-columns: repeat(64, 1fr);
+    grid-template-rows: repeat(64, 1fr);
     margin: 0 auto;
     height: 100%;
     width: 100%;
     background-color: white;
-    box-shadow: 0px 0px 1rem 5px #A7A0A7;
-    border: .5px #A7A0A7 solid;
-}
-
-#defaultCanvasGrid {
-    display: grid;
-    grid-template-columns: repeat(64, 1fr);
-    grid-template-rows: repeat(64, 1fr);
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    box-shadow: 0px 0px 1rem 5px #A7A0A7;
-    border: .5px #A7A0A7 solid;
+    border: 2px black solid;
 }
 
 .gridPixel {
@@ -63,5 +53,5 @@ body.canvas {
     padding: 10%;
     height: 100%;
     width: 100%;
-    border: .25px rgba(167, 160, 167, 0.5) solid;
+    border: .25px #B8B8B8 solid;
 }

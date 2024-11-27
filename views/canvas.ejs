@@ -39,11 +39,10 @@
                 <% let pixelNumber = canvasHeight * canvasWidth; %>
                 <% for(let i = 1; i <= pixelNumber; i++){ %>
                     <% let pixelId = "pixel" + i; %>
-                    <div class="gridPixel" id= <%= pixelId %> >
-
-                    </div>
+                    <div class="gridPixel" id= <%= pixelId %> > </div>
                 <% } %>
                 </div>
+                <p><%= canvasWidth %> x <%= canvasHeight %></p>
                 
             <% } else { %>
                 <% let canvasWidth = 64; %>
@@ -56,11 +55,9 @@
                     <div class="gridPixel" id= <%= pixelId %> > </div>
                 <% } %>
                 </div>
-
+                <p><%= canvasWidth %> x <%= canvasHeight %></p>
             <% } %>
             </div>    
-
-            <p><%= canvasWidth %> x <%= canvasHeight %></p>
         </section>
     
 
