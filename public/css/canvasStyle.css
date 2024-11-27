@@ -1,6 +1,6 @@
 /* Color Scheme:
  Light Grey: #F2F2F2
- darker grey: #B8B8B8
+ darker grey: #CCCCCC
  light blue: #187FCF
  pink: #A51F91
  teal: #17658A
@@ -50,5 +50,4 @@ body {
     padding: 10%;
     height: 100%;
     width: 100%;
-    border: .25px #B8B8B8 solid;
 }
