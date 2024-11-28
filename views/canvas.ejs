@@ -79,12 +79,28 @@
             <% } else { %>
                 <% let canvasWidth = 64; %>
                 <% let canvasHeight = 64; %>
+                <% let row = 1; %>
                 <!-- if no user input is given, a default grid is generated,
                 with a width and height of 64 -->
                 <div id="defaultCanvasGrid">
                 <% for(let i = 1; i <= 4096; i++){ %>
                     <% let pixelId = "pixel" + i; %>
-                    <div class="gridPixel" id= <%= pixelId %> > </div>
+                    <% if (row % 2 === 0){ %>
+                        <% if (i % 2 === 0){ %>
+                            <div class="gridPixel" id= <%= pixelId %> style="background-color: #CCCCCC"> </div>
+                        <% } else { %>
+                            <div class="gridPixel" id= <%= pixelId %> > </div>
+                        <% } %>
+                    <% } else { %>
+                        <% if (i % 2 === 1){ %>
+                            <div class="gridPixel" id= <%= pixelId %> style="background-color: #CCCCCC"> </div>
+                        <% } else { %>
+                            <div class="gridPixel" id= <%= pixelId %> > </div>
+                        <% } %>
+                    <% } %>
+                    <% if (i % 64 === 0){ %>
+                        <% row++; %>
+                    <% } %>
                 <% } %>
                 </div>
                 <p><%= canvasWidth %> x <%= canvasHeight %></p>
