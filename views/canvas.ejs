@@ -37,14 +37,33 @@
                 gridPixels are generated to fill the given amount
                 of rows and columns.-->
                 <% let pixelNumber = canvasHeight * canvasWidth; %>
+                <% let row = 1; %>
                 <% for(let i = 1; i <= pixelNumber; i++){ %>
                     <% let pixelId = "pixel" + i; %>
+                    <!-- If the canvas width is even, the checkers need 
+                     to shift by one every other row. The row is incremented
+                     every time we generate pixels totalling to the width of the canvas.
+                     Every other row, the checkers are switched to start on the first
+                     or second pixel, depending. -->
                     <% if (canvasWidth % 2 === 0){ %>
-                        <% if (i % 0 === 2){ %>
-                            <div class="gridPixel" id= <%= pixelId %> style="background-color: #CCCCCC"> </div>
+                        <% if (row % 2 === 0){ %>
+                            <% if (i % 2 === 0){ %>
+                                <div class="gridPixel" id= <%= pixelId %> style="background-color: #CCCCCC"> </div>
+                            <% } else { %>
+                                <div class="gridPixel" id= <%= pixelId %> > </div>
+                            <% } %>
                         <% } else { %>
-                            <div class="gridPixel" id= <%= pixelId %> > </div>
+                            <% if (i % 2 === 1){ %>
+                                <div class="gridPixel" id= <%= pixelId %> style="background-color: #CCCCCC"> </div>
+                            <% } else { %>
+                                <div class="gridPixel" id= <%= pixelId %> > </div>
+                            <% } %>
                         <% } %>
+                        <% if (i % canvasWidth === 0){ %>
+                            <% row++; %>
+                        <% } %>
+
+                    <!-- Width is not even, checkered grid generates easily -->
                     <% } else { %>
                         <% if (i % 2 === 1){ %>
                             <div class="gridPixel" id= <%= pixelId %> style="background-color: #CCCCCC"> </div>
