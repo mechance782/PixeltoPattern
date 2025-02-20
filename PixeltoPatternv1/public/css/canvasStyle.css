@@ -1,0 +1,53 @@
+/* Color Scheme:
+ Light Grey: #F2F2F2
+ darker grey: #CCCCCC
+ light blue: #187FCF
+ pink: #A51F91
+ teal: #17658A
+ purple: #480A8F
+ red: #7D103C
+  */
+
+
+/* global */
+
+* {
+    box-sizing: border-box;
+}
+
+.err {
+    color: red;
+    display: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F2F2F2;
+    
+}
+
+
+#canvasContainer {
+    width: 600px;
+    height: 600px;
+    margin: auto auto ;
+}
+
+#defaultCanvasGrid, 
+#reactiveCanvasGrid {
+    display: grid;
+    grid-template-columns: repeat(64, 1fr);
+    grid-template-rows: repeat(64, 1fr);
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border: 2px black solid;
+}
+
+.gridPixel {
+    margin: 0;
+    padding: 10%;
+    height: 100%;
+    width: 100%;
+}
