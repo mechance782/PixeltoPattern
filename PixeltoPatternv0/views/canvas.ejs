@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel to Pattern</title>
+
+    <link rel="stylesheet" 
+        type="text/css" 
+        href="css/canvasStyle.css">
+
+    <script src="scripts/canvasScript.js" defer></script>
+    
+</head>
+<body class="canvas" >
+
+        <nav></nav>
+
+        <section id="toolBar"> </section>
+
+        <section id="drawingArea">
+            <!-- this div, canvasContainer acts as the view of the canvas. The container is always 600px by 600px.
+            The grid will fill the container depending on the ratio of width to height. 
+            The grid will always fill 100% of the width or height of the container, or both.-->
+            <div id="canvasContainer" >    
+
+            <!-- If the user provided inputs for height and width in index.ejs canvasForm,
+            then the program will find the height/width ratio. 
+            This will help the canvas reactively fill the canvasContainer. 
+            The ratio is coded inline on the canvasGrid div-->
+            <% if ((canvasHeight != "") && (canvasWidth != "")) { %>
+                
+                <div id="reactiveCanvasGrid" style="height:<%= ratio.heightRatio %>; width: <%= ratio.widthRatio %>;
+                grid-template-columns: repeat(<%= canvasWidth %>, 1fr); grid-template-rows:repeat(<%= canvasHeight %>, 1fr);" >
+                
+                <!-- fills reactiveCanvasGrid div with .gridPixel divs.
+                gridPixels are generated to fill the given amount
+                of rows and columns.-->
+                <% let pixelNumber = canvasHeight * canvasWidth; %>
+                <% let row = 1; %>
+                <% for(let i = 1; i <= pixelNumber; i++){ %>
+                    <% let pixelId = "pixel" + i; %>
+                    <!-- If the canvas width is even, the checkers need 
+                     to shift by one every other row. The row is incremented
+                     every time we generate pixels totalling to the width of the canvas.
+                     Every other row, the checkers are switched to start on the first
+                     or second pixel, depending. -->
+                    <% if (canvasWidth % 2 === 0){ %>
+                        <% if (row % 2 === 0){ %>
+                            <% if (i % 2 === 0){ %>
+                                <div class="gridPixel" id= <%= pixelId %> style="background-color: #CCCCCC"> </div>
+                            <% } else { %>
+                                <div class="gridPixel" id= <%= pixelId %> > </div>
+                            <% } %>
+                        <% } else { %>
+                            <% if (i % 2 === 1){ %>
+                                <div class="gridPixel" id= <%= pixelId %> style="background-color: #CCCCCC"> </div>
+                            <% } else { %>
+                                <div class="gridPixel" id= <%= pixelId %> > </div>
+                            <% } %>
+                        <% } %>
+                        <% if (i % canvasWidth === 0){ %>
+                            <% row++; %>
+                        <% } %>
+
+                    <!-- Width is not even, checkered grid generates easily -->
+                    <% } else { %>
+                        <% if (i % 2 === 1){ %>
+                            <div class="gridPixel" id= <%= pixelId %> style="background-color: #CCCCCC"> </div>
+                        <% } else { %>
+                            <div class="gridPixel" id= <%= pixelId %> > </div>
+                        <% } %>
+                    <% } %>
+                    
+                <% } %>
+                </div>
+                <p><%= canvasWidth %> x <%= canvasHeight %></p>
+                
+            <% } else { %>
+                <% let canvasWidth = 64; %>
+                <% let canvasHeight = 64; %>
+                <% let row = 1; %>
+                <!-- if no user input is given, a default grid is generated,
+                with a width and height of 64 -->
+                <div id="defaultCanvasGrid">
+                <% for(let i = 1; i <= 4096; i++){ %>
+                    <% let pixelId = "pixel" + i; %>
+                    <% if (row % 2 === 0){ %>
+                        <% if (i % 2 === 0){ %>
+                            <div class="gridPixel" id= <%= pixelId %> style="background-color: #CCCCCC"> </div>
+                        <% } else { %>
+                            <div class="gridPixel" id= <%= pixelId %> > </div>
+                        <% } %>
+                    <% } else { %>
+                        <% if (i % 2 === 1){ %>
+                            <div class="gridPixel" id= <%= pixelId %> style="background-color: #CCCCCC"> </div>
+                        <% } else { %>
+                            <div class="gridPixel" id= <%= pixelId %> > </div>
+                        <% } %>
+                    <% } %>
+                    <% if (i % 64 === 0){ %>
+                        <% row++; %>
+                    <% } %>
+                <% } %>
+                </div>
+                <p><%= canvasWidth %> x <%= canvasHeight %></p>
+            <% } %>
+            </div>    
+        </section>
+    
+
+
+    
+
+
+</body>
+</html>
